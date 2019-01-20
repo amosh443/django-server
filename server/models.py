@@ -106,13 +106,13 @@ class Order(models.Model):
 
     user_id = models.ForeignKey(
         User,
-        on_delete=models.DO_NOTHING(),
+        on_delete=models.DO_NOTHING,
         null=False,
     )
 
     cafe_id = models.ForeignKey(
         Cafe,
-        on_delete=models.DO_NOTHING(),
+        on_delete=models.DO_NOTHING,
         null=False,
     )
 
