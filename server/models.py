@@ -75,7 +75,7 @@ class Cafe(models.Model):
         blank=False,
     )
 
-    photoURL = models.CharField(
+    photo_url = models.CharField(
         max_length=222,
         null=True,
         blank=False,
@@ -87,13 +87,13 @@ class Cafe(models.Model):
         blank=False,
     )
 
-    coordX = models.DecimalField(
+    coord_x = models.DecimalField(
         null=False,
         decimal_places=10,
         max_digits=10,
     )
 
-    coordY = models.DecimalField(
+    coord_y = models.DecimalField(
         null=False,
         decimal_places=10,
         max_digits=10,
@@ -132,5 +132,11 @@ class Order(models.Model):
     )
 
     count = models.IntegerField(
-        null=True,
+        null=False,
+        default=1
+    )
+
+    status = models.IntegerField(
+        null=False,
+        default=1
     )
