@@ -33,7 +33,30 @@ class User(models.Model):
     )
 
 
+class Dish(models.Model):
+    name = models.CharField(
+        max_length=222,
+        null=True,
+        blank=False,
+    )
+
+    photo_url = models.CharField(
+        max_length=22,
+        null=True,
+        blank=False,
+    )
+
+    description = models.CharField(
+        max_length=22,
+        null=True,
+        blank=False,
+    )
+
+
 class Cafe(models.Model):
+
+    dish = models.ManyToManyField(Dish)
+
     name = models.CharField(
         max_length=222,
         null=False,
@@ -78,6 +101,9 @@ class Cafe(models.Model):
 
 
 class Order(models.Model):
+
+    dish = models.ManyToManyField(Dish)
+
     user_id = models.ForeignKey(
         User,
         on_delete=models.DO_NOTHING(),
@@ -107,24 +133,4 @@ class Order(models.Model):
 
     count = models.IntegerField(
         null=True,
-    )
-
-
-class Dish(models.Model):
-    name = models.CharField(
-        max_length=222,
-        null=True,
-        blank=False,
-    )
-
-    photo_url = models.CharField(
-        max_length=22,
-        null=True,
-        blank=False,
-    )
-
-    description = models.CharField(
-        max_length=22,
-        null=True,
-        blank=False,
     )
