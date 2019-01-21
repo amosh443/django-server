@@ -1,7 +1,7 @@
-
 from django.db import models
 
 
+# Create your models here.
 class User(models.Model):
     name = models.CharField(
         max_length=222,
@@ -31,7 +31,7 @@ class User(models.Model):
         max_length=222,
         null=True,
         blank=True,
-    )
+     )
 
 
 class Dish(models.Model):
@@ -41,8 +41,8 @@ class Dish(models.Model):
         blank=False,
     )
 
-    photo = models.CharField(
-        max_length=222,
+    photo_url = models.CharField(
+        max_length=22,
         null=True,
         blank=False,
     )
@@ -56,7 +56,7 @@ class Dish(models.Model):
 
 class Cafe(models.Model):
 
-    dishes = models.ManyToManyField(Dish)
+    dish = models.ManyToManyField(Dish)
 
     name = models.CharField(
         max_length=222,
@@ -76,7 +76,7 @@ class Cafe(models.Model):
         blank=False,
     )
 
-    photo = models.CharField(
+    photo_url = models.CharField(
         max_length=222,
         null=True,
         blank=False,
@@ -103,7 +103,7 @@ class Cafe(models.Model):
 
 class Order(models.Model):
 
-    dishes = models.ManyToManyField(Dish)
+    dish = models.ManyToManyField(Dish)
 
     user_id = models.ForeignKey(
         User,
